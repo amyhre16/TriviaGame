@@ -41,8 +41,10 @@ $(document).ready(function() {
 
     $('.answer').on('click', function() {
     	// console.log($(this).parent().next('.question').attr('id'));
+    	$(this).parent().removeClass('current');
     	$(this).parent().hide();
     	$(this).parent().next('.question').show();
+    	$(this).parent().next('.question').addClass('current');
     	reset();
     });
 
