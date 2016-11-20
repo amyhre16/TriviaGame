@@ -6,6 +6,7 @@ $(document).ready(function() {
     var result;
 	var timeLeft = 10;
 	var time;
+    var last = false;
 
 
     function timeDown() {
@@ -30,12 +31,13 @@ $(document).ready(function() {
     function count() {
     	$('#timeRemaining').html(timeLeft);
     	if (timeLeft == 0) {
-            wrong++;
+            unanswered++;
             result = "<h2>Time's up!</h2><h4>The answer we were looking for was " + $('.current').children('.correct').text() + "</h4>";
             var currentQuestion = $('.current');
             // console.log(currentQuestion.next('.question'));
-            var nextQ = currentQuestion.next('.question');
-            nextQ.addClass('current');
+            // var next = currentQuestion.next('.question');
+            currentQuestion.next('.question').addClass('current');
+            // nextQ.addClass('current');
             currentQuestion.removeClass('current');
             currentQuestion.hide();
             // $(this).parent().next().next('.question').show();
@@ -70,7 +72,16 @@ $(document).ready(function() {
     function displayCorrectAnswer() {
         $('#resultDisplay').show();
         $('.result').html(result);
-        var nextQuestionTimer = setTimeout(nextQuestion, 5000);
+        if (last == false) {
+            if ($('.current').hasClass('last')) {
+                last = true;
+            }
+            console.log(last);
+            var nextQuestionTimer = setTimeout(nextQuestion, 5000);
+        }
+        else {
+            var showFinalResults = setTimeout(displayFinalResults, 5000);
+        }
     }
 
     function nextQuestion() {
@@ -79,17 +90,26 @@ $(document).ready(function() {
         $('.current').show();
     }
 
+    function displayFinalResults() {
+        $('#resultDisplay').hide();
+        $('#finalResults').show();
+        $('#numberCorrect').html(correct);
+        $('#numberIncorrect').html(wrong);
+        $('#numberUnanswered').html(unanswered);
+    }
+
     // event listener for when the user clicks on an answer
     $('.answer').on('click', function() {
          // console.log($(this).parent().next('.question').attr('id'));
         
         // remove the current class from this question and hide it
+
         $(this).parent().removeClass('current');
         $(this).parent().hide();
         // $(this).parent().next().next('.question').show();
 
         // add current class to the next question
-        $(this).parent().next().next('.question').addClass('current');
+        $(this).parent().next('.question').addClass('current');
         // show the correct answer div
         $('#resultDisplay').show();
         
