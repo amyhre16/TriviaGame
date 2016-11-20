@@ -11,33 +11,29 @@
 				<h1 style="text-align: center;">Welcome to the Texas Football Quiz!</h1>
 			</div>
 			<div class="btn btn-primary" style="width: 80%; margin: 10%; height: 100px; padding: 40px;" id="start">Start!</div>
-			<div class="container" style="display: none;">
-				<div class="row">
+			<div class="container">
+				<div class="row time" style="display: none;">
 					<p>Time Remaining: <span id="timeRemaining"></span></p>
 				</div>
-				<div class="row question current" id="question1">
+				<div class="row question current" style="display: none;" id="question1">
 					<div>This is Question Number 1</div>
-					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Answer 1</div>
+					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Question 1 Answer 1</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 2</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 3</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 4</div>
-				</div>
-				<div class="row" id="resultDisplay">
-					<div class="result"></div>
-					<div class="correctAnswer"></div>
 				</div>
 				<div class="row question" style="display: none;" id="question2">
 					<div>This is Question Number 2</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 1</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 2</div>
-					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Answer 3</div>
+					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Question 2 Answer 3</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 4</div>
 				</div>
 				<div class="row question" style="display: none;" id="question3">
 					<div>This is Question Number 3</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 1</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 2</div>
-					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Answer 3</div>
+					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Question 3 Answer 3</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 4</div>
 				</div>
 				<div class="row question" style="display: none;" id="question4">
@@ -45,12 +41,12 @@
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 1</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 2</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 3</div>
-					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Answer 4</div>
+					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Question 4 Answer 4</div>
 				</div>
 				<div class="row question" style="display: none;" id="question5">
 					<div>This is Question Number 5</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 1</div>
-					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Answer 2</div>
+					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Question 5 Answer 2</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 3</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 4</div>
 				</div>
@@ -58,12 +54,12 @@
 					<div>This is Question Number 6</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 1</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 2</div>
-					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Answer 3</div>
+					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Question 6 Answer 3</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 4</div>
 				</div>
 				<div class="row question" style="display: none;" id="question7">
 					<div>This is Question Number 7</div>
-					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Answer 1</div>
+					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Question 7 Answer 1</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 2</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 3</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 4</div>
@@ -71,7 +67,7 @@
 				<div class="row question" style="display: none;" id="question8">
 					<div>This is Question Number 8</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 1</div>
-					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Answer 2</div>
+					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Question 8 Answer 2</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 3</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 4</div>
 				</div>
@@ -80,14 +76,18 @@
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 1</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 2</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 3</div>
-					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Answer 4</div>
+					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Question 9 Answer 4</div>
 				</div>
 				<div class="row question" style="display: none;" id="question10">
 					<div>This is Question Number 10</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 1</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 2</div>
-					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Answer 3</div>
+					<div class="answer btn btn-primary correct" style="display: block; margin: 10px;">Question 10Answer 3</div>
 					<div class="answer btn btn-primary" style="display: block; margin: 10px;">Answer 4</div>
+				</div>
+				<div class="row" id="resultDisplay">
+					<div class="result"></div>
+					<div class="correctAnswer"></div>
 				</div>
 			</div>
 		</div>

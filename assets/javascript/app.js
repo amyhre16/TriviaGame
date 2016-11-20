@@ -30,14 +30,17 @@ $(document).ready(function() {
     function count() {
     	$('#timeRemaining').html(timeLeft);
     	if (timeLeft == 0) {
-            result = "<h2>Time's up!</h2><h4>" + $('.current').children('.correct').text() + "</h4";
+            wrong++;
+            result = "<h2>Time's up!</h2><h4>The answer we were looking for was " + $('.current').children('.correct').text() + "</h4>";
             var currentQuestion = $('.current');
+            // console.log(currentQuestion.next('.question'));
+            var nextQ = currentQuestion.next('.question');
+            nextQ.addClass('current');
             currentQuestion.removeClass('current');
             currentQuestion.hide();
             // $(this).parent().next().next('.question').show();
 
             // add current class to the next question
-            currentQuestion.next('.question').addClass('current');
             displayCorrectAnswer();
     		reset();
     	}
@@ -56,16 +59,24 @@ $(document).ready(function() {
 
     // event listener for the start button
     $('#start').on('click', function() {
-    	$(this).hide();
-    	$(this).prop('disabled', true);
-    	$(this).next().show();
-    	startTime();
+        $(this).hide();
+        $(this).prop('disabled', true);
+        $('.time').show();
+        $('.current').show();
+        startTime();
     });
 
     // function to display the question result
     function displayCorrectAnswer() {
+        $('#resultDisplay').show();
         $('.result').html(result);
+        var nextQuestionTimer = setTimeout(nextQuestion, 5000);
+    }
 
+    function nextQuestion() {
+        startTime();
+        $('#resultDisplay').hide();
+        $('.current').show();
     }
 
     // event listener for when the user clicks on an answer
@@ -84,13 +95,15 @@ $(document).ready(function() {
         
         // if the answer chosen is correct, assign a header to the result variable and display it
         if ($(this).hasClass('correct')) {
+            correct++;
             result = "<h2>Correct!</h2>";
             displayCorrectAnswer();
             console.log("Correct");
         }
         // if the incorrect answer is chosen, assign a header to the result var and display it
         else {
-            result = "<h2>Incorrect!</h2><h4>The answer we were looking for was " + $(this).parent().next('.correct').text() +"</h4>";
+            wrong++;
+            result = "<h2>Incorrect!</h2><h4>The answer we were looking for was " + $(this).parent().children('.correct').text() +"</h4>";
             displayCorrectAnswer();
             console.log("Wrong!");
         }
