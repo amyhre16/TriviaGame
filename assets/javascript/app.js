@@ -8,17 +8,17 @@ $(document).ready(function() {
 	var time;
 
 
-    // function timeDown() {
-    //     $("#timeRemaining").html(timeLeft);
-    //     time = setTimeout(timeDown, 1000);
-	   //  if (timeLeft == 0) {
-	   //  	console.log("done");
-	   //  	clearTimeout(time);
-	   //  	$('.question').hide();
-	   //  	reset();
-	   //  }
-    //     timeLeft--;
-    // }
+    function timeDown() {
+        $("#timeRemaining").html(timeLeft);
+        time = setTimeout(timeDown, 1000);
+	    if (timeLeft == 0) {
+	    	console.log("done");
+	    	clearTimeout(time);
+	    	$('.question').hide();
+	    	reset();
+	    }
+        timeLeft--;
+    }
     
     // starts the timer
     function startTime() {
@@ -30,7 +30,14 @@ $(document).ready(function() {
     function count() {
     	$('#timeRemaining').html(timeLeft);
     	if (timeLeft == 0) {
-            result = $('.current').children('.correct');
+            result = "<h2>Time's up!</h2><h4>" + $('.current').children('.correct').text() + "</h4";
+            var currentQuestion = $('.current');
+            currentQuestion.removeClass('current');
+            currentQuestion.hide();
+            // $(this).parent().next().next('.question').show();
+
+            // add current class to the next question
+            currentQuestion.next('.question').addClass('current');
             displayCorrectAnswer();
     		reset();
     	}
@@ -63,7 +70,18 @@ $(document).ready(function() {
 
     // event listener for when the user clicks on an answer
     $('.answer').on('click', function() {
-        // console.log($(this).parent().next('.question').attr('id'));
+         // console.log($(this).parent().next('.question').attr('id'));
+        
+        // remove the current class from this question and hide it
+        $(this).parent().removeClass('current');
+        $(this).parent().hide();
+        // $(this).parent().next().next('.question').show();
+
+        // add current class to the next question
+        $(this).parent().next().next('.question').addClass('current');
+        // show the correct answer div
+        $('#resultDisplay').show();
+        
         // if the answer chosen is correct, assign a header to the result variable and display it
         if ($(this).hasClass('correct')) {
             result = "<h2>Correct!</h2>";
@@ -76,15 +94,6 @@ $(document).ready(function() {
             displayCorrectAnswer();
             console.log("Wrong!");
         }
-        // remove the current class from this question and hide it
-        $(this).parent().removeClass('current');
-        $(this).parent().hide();
-        // $(this).parent().next().next('.question').show();
-
-        // add current class to the next question
-        $(this).parent().next().next('.question').addClass('current');
-        // show the correct answer div
-        $(this).parent().next().show();
 
         // clear the timer
         clearInterval(time);
