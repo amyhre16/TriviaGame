@@ -1,0 +1,19 @@
+h1 {
+	text-align: center;
+}
+
+#start, #restartGame {
+	width: 80%;
+	margin: 10%;
+	height: 100px;
+	padding: 40px;
+}
+
+.time, .question, #resultDisplay, #finalResults {
+	display: none;
+}
+
+.answer {
+	display: block;
+	margin: 10px;
+}
