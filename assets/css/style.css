@@ -2,6 +2,16 @@ h1 {
 	text-align: center;
 }
 
+.btn, .jumbotron {
+	background-color: #CF5300;
+	border-color: black;
+}
+
+.btn:hover, .btn:active, .btn:focus {
+	background-color: #8e3e09;
+	border-color: black;
+}
+
 #start, #restartGame {
 	width: 80%;
 	margin: 10%;

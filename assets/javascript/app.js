@@ -4,7 +4,7 @@ $(document).ready(function() {
 	var wrong = 0;
 	var unanswered = 0;
     var result;
-	var timeLeft = 10;
+	var timeLeft = 15;
 	var time;
     var last = false;
 
@@ -12,7 +12,7 @@ $(document).ready(function() {
         correct = 0;
         wrong = 0;
         unanswered = 0;
-        timeLeft = 10;
+        timeLeft = 15;
         time;
         last = false;
         $('#finalResults').hide();
@@ -22,7 +22,7 @@ $(document).ready(function() {
     
     // starts the timer
     function startTime() {
-    	timeLeft = 10;
+    	timeLeft = 15;
     	time = setInterval(count, 1000);
     }
 
