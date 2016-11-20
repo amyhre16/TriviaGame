@@ -8,17 +8,16 @@ $(document).ready(function() {
 	var time;
     var last = false;
 
-
-    function timeDown() {
-        $("#timeRemaining").html(timeLeft);
-        time = setTimeout(timeDown, 1000);
-	    if (timeLeft == 0) {
-	    	console.log("done");
-	    	clearTimeout(time);
-	    	$('.question').hide();
-	    	reset();
-	    }
-        timeLeft--;
+    function startGame() {
+        correct = 0;
+        wrong = 0;
+        unanswered = 0;
+        timeLeft = 10;
+        time;
+        last = false;
+        $('#finalResults').hide();
+        startTime();
+        $('.current').show();
     }
     
     // starts the timer
@@ -59,15 +58,6 @@ $(document).ready(function() {
     	// startTime();
     }
 
-    // event listener for the start button
-    $('#start').on('click', function() {
-        $(this).hide();
-        $(this).prop('disabled', true);
-        $('.time').show();
-        $('.current').show();
-        startTime();
-    });
-
     // function to display the question result
     function displayCorrectAnswer() {
         $('#resultDisplay').show();
@@ -77,7 +67,7 @@ $(document).ready(function() {
                 last = true;
             }
             console.log(last);
-            var nextQuestionTimer = setTimeout(nextQuestion, 5000);
+            var nextQuestionTimer = setTimeout(nextQuestion, 500);
         }
         else {
             var showFinalResults = setTimeout(displayFinalResults, 5000);
@@ -96,42 +86,67 @@ $(document).ready(function() {
         $('#numberCorrect').html(correct);
         $('#numberIncorrect').html(wrong);
         $('#numberUnanswered').html(unanswered);
+        $('#question1').addClass('current');
     }
 
+    // event listener for the start button
+    // $('#start').on('click', function() {
+    //     $(this).hide();
+    //     $(this).prop('disabled', true);
+    //     $('.time').show();
+    //     $('.current').show();
+    //     startTime();
+    // });
+
     // event listener for when the user clicks on an answer
-    $('.answer').on('click', function() {
+    $('.btn').on('click', function() {
          // console.log($(this).parent().next('.question').attr('id'));
-        
+        if ($(this).attr('id') == 'start') {
+            $(this).hide();
+            $(this).prop('disabled', true);
+            $('.time').show();
+            $('.current').show();
+            startTime();
+        }
+
+        else if ($(this).attr('id') == 'restartGame') {
+            // do stuff
+            startGame();
+        }
+
         // remove the current class from this question and hide it
+        else /*if ($(this).hasClass('answer'))*/ {
+            $(this).parent().removeClass('current');
+            $(this).parent().hide();
+            // $(this).parent().next().next('.question').show();
 
-        $(this).parent().removeClass('current');
-        $(this).parent().hide();
-        // $(this).parent().next().next('.question').show();
+            // add current class to the next question
+            $(this).parent().next('.question').addClass('current');
+            // show the correct answer div
+            $('#resultDisplay').show();
+            
+            // if the answer chosen is correct, assign a header to the result variable and display it
+            if ($(this).hasClass('correct')) {
+                correct++;
+                result = "<h2>Correct!</h2>";
+                displayCorrectAnswer();
+                console.log("Correct");
+            }
+            // if the incorrect answer is chosen, assign a header to the result var and display it
+            else {
+                wrong++;
+                result = "<h2>Incorrect!</h2><h4>The answer we were looking for was " + $(this).parent().children('.correct').text() +"</h4>";
+                displayCorrectAnswer();
+                console.log("Wrong!");
+            }
 
-        // add current class to the next question
-        $(this).parent().next('.question').addClass('current');
-        // show the correct answer div
-        $('#resultDisplay').show();
-        
-        // if the answer chosen is correct, assign a header to the result variable and display it
-        if ($(this).hasClass('correct')) {
-            correct++;
-            result = "<h2>Correct!</h2>";
-            displayCorrectAnswer();
-            console.log("Correct");
+            // clear the timer
+            clearInterval(time);
+            // startTime();
+            // reset();
         }
-        // if the incorrect answer is chosen, assign a header to the result var and display it
-        else {
-            wrong++;
-            result = "<h2>Incorrect!</h2><h4>The answer we were looking for was " + $(this).parent().children('.correct').text() +"</h4>";
-            displayCorrectAnswer();
-            console.log("Wrong!");
-        }
-
-        // clear the timer
-        clearInterval(time);
-        // startTime();
-        // reset();
     });
+
+    $()
 
 });
