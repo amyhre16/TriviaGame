@@ -1,4 +1,4 @@
-h1 {
+h1, p, .question {
 	text-align: center;
 }
 
@@ -14,7 +14,7 @@ h1 {
 
 #start, #restartGame {
 	width: 80%;
-	margin: 10%;
+	margin: 15px 10%;
 	height: 100px;
 	padding: 40px;
 }
@@ -26,4 +26,27 @@ h1 {
 .answer {
 	display: block;
 	margin: 10px;
+	margin-left: 20%;
+	width: 60%;
+}
+
+#finalResults {
+	margin-right: 10%;
+	margin-left: 10%;
+}
+
+h2 {
+	margin-top: 5px;
+	text-align: center;
+}
+
+h4 {
+	text-align: center;
+}
+
+img {
+	margin-bottom: 30px;
+	margin-left: 38%;
+	height: 250px;
+	width: 300px;
 }
