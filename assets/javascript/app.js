@@ -51,7 +51,8 @@ $(document).ready(function() {
         */
     	if (timeLeft == 0) {
             unanswered++;
-            result = "<h2>Time's up!</h2><h4>The answer we were looking for was " + $('.current').children('.correct').text() + "</h4>";
+            result = "<h2>Time's up!</h2><h4>The answer we were looking for was " + $('.current').children('.correct').text()
+             + "</h4><img src='" + $('.current').children('.correct').attr('data-gif') + "'>";
             
             var currentQuestion = $('.current');
             currentQuestion.next('.question').addClass('current');
