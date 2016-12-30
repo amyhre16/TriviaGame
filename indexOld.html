@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Hook 'Em! \m/</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Welcome to the Texas Football Quiz!</h1>
+			</div>
+			<div class="btn" id="start">Start!</div>
+			<div class="container">
+				<div class="row time">
+					<p>Time Remaining: <span id="timeRemaining"></span></p>
+				</div>
+				<div class="row question current" id="question1">
+					<div>How many national championships have the Longhorns won?</div>
+					<div class="answer btn correct" data-gif="assets/images/vy-dance.gif">4</div>
+					<div class="answer btn">6</div
+		>			<div class="answer btn">0</div>
+					<div class="answer btn">1</div>
+				</div>
+				<div class="row question" id="question2">
+					<div>What Texas legend's record for most consecutive games with 100+ yards rushing did D'Onta Foreman recently break?</div>
+					<div class="answer btn">Vince Young</div>
+					<div class="answer btn">Jamaal Charles</div>
+					<div class="answer btn correct" data-gif="assets/images/earl-campbell.gif">Earl Campbell</div>
+					<div class="answer btn">Ricky Williams</div>
+				</div>
+				<div class="row question" id="question3">
+					<div>According to Lee Corso, on January 4, 2006, Texas "shocked the entire universe" when they upset USC in the BCS National Championship. What was the final score?</div>
+					<div class="answer btn">27 - 13</div>
+					<div class="answer btn">19 - 10</div>
+					<div class="answer btn correct" data-gif="assets/images/vy-sweed.gif">41 - 38</div>
+					<div class="answer btn">14 - 7</div>
+				</div>
+				<div class="row question" id="question4">
+					<div>What Texas quarterback holds the school record for most completions in a single game?</div>
+					<div class="answer btn">Colt McCoy, 48 completions</div>
+					<div class="answer btn">Garret Gilbert, 34 completions</div>
+					<div class="answer btn">Shane Buechele, 31 completions</div>
+					<div class="answer btn correct" data-gif="assets/images/colt-mccoy.jpg">Colt McCoy, 41 completions</div>
+				</div>
+				<div class="row question" id="question5">
+					<div>Jordan and Jaxon Shipley are two of the best receivers in Texas history. How many receiving yards did the brothers combine for in their careers?</div>
+					<div class="answer btn">6,100 yards</div>
+					<div class="answer btn correct" data-gif="assets/images/jaxon-shipley.gif">5,701 yards</div>
+					<div class="answer btn">5,500 yards</div>
+					<div class="answer btn">6,398 yards</div>
+				</div>
+				<div class="row question" id="question6">
+					<div>Who holds the recod for interceptions in a single season?</div>
+					<div class="answer btn">Blake Gideon, 9 interceptions</div>
+					<div class="answer btn">Jack Crain, 7 interceptions</div>
+					<div class="answer btn correct" data-gif="assets/images/earl-thomas.jpg">Earl Thomas, 8 interceptions</div>
+					<div class="answer btn">Aaron Ross, 8 interceptions</div>
+				</div>
+				<div class="row question" id="question7">
+					<div>The Horns are currently third on the all-time wins list. How many wins do they have?</div>
+					<div class="answer btn correct" data-gif="assets/images/daje-johnson.gif">891 wins</div>
+					<div class="answer btn">896 wins</div>
+					<div class="answer btn">888 wins</div>
+					<div class="answer btn">903 wins</div>
+				</div>
+				<div class="row question" id="question8">
+					<div>What Texas placekicker made 121 consecutive extra points?</div>
+					<div class="answer btn">Hunter Lawrence</div>
+					<div class="answer btn correct" data-gif="assets/images/dusty-mangum.jpg">Dusty Mangum</div>
+					<div class="answer btn">Justin Tucker</div>
+					<div class="answer btn">Phil Dawson</div>
+				</div>
+				<div class="row question" id="question9">
+					<div>What is the largest win margin in team history?</div>
+					<div class="answer btn">70 - 3 vs Colorado in 2005</div>
+					<div class="answer btn">76 - 0 vs Colorado in 1946</div>
+					<div class="answer btn">81 - 16 vs TCU in 1974</div>
+					<div class="answer btn correct" data-gif="assets/images/michaelgriffin.gif">92 - 0 vs Daniel Baker in 1915</div>
+				</div>
+				<div class="row question last" id="question10">
+					<div>What is the most total offense Texas has gained in a single game?</div>
+					<div class="answer btn">673 yards vs North Texas in 2004</div>
+					<div class="answer btn">645 yards vs Baylor in 2005</div>
+					<div class="answer btn correct" data-gif="assets/images/vince_osu.gif">715 yards vs New Mexico State in 2013</div>
+					<div class="answer btn">692 yards in Rice in 1998</div>
+				</div>
+				<div class="row" id="resultDisplay">
+					<div class="result"></div>
+				</div>
+				<div class="row" id="finalResults">
+					<p id="displayCorrect">Correct Answers: <span id="numberCorrect"></span></p>
+					<p id="displayWrong">Incorrect Answers: <span id="numberIncorrect"></span></p>
+					<p id="displayUnanswered">Unanswered Questions: <span id="numberUnanswered"></span></p>
+					<div class="btn" id="restartGame">Restart Game?</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="assets/javascript/app.js"></script>
+	</body>
+</html>
