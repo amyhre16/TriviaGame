@@ -7,8 +7,8 @@ $(document).ready(function() {
     var result;
     var timeLeft = 15;
     var time;
-    /*var texasFight = new Audio('assets/sounds/texasFight.m4a');
-    var eyesOfTexas = new Audio('assets/sounds/the-eyes-of-texas.m4a');*/
+    var texasFight = new Audio('assets/sounds/texasFight.m4a');
+    var eyesOfTexas = new Audio('assets/sounds/the-eyes-of-texas.m4a');
     var texasFight;
     var eyesOfTexas;
     var questionCounter = 0;
@@ -133,6 +133,7 @@ $(document).ready(function() {
         hides the final results, starts the timer and shows the first question
     */
     function startGame() {
+    	console.log("startGame() triggered");
         eyesOfTexas.pause();
         texasFight = new Audio('assets/sounds/texasFight.m4a');
         texasFight.play();
@@ -142,10 +143,12 @@ $(document).ready(function() {
         timeLeft = 15;
         time;
     	result;
-    	texasFight;
-    	eyesOfTexas;
     	questionCounter = 0;
+    	texasFight = new Audio('assets/sounds/texasFight.m4a');
+    	eyesOfTexas = new Audio('assets/sounds/the-eyes-of-texas.m4a');
         $('#finalResults').hide();
+        $('.time').show();
+        $('#holder').show();
         startTime();
         nextQuestion();
     }
@@ -154,6 +157,7 @@ $(document).ready(function() {
         starts the timer
     */
     function startTime() {
+    	console.log("startTime() triggered");
     	timeLeft = 15;
     	time = setInterval(count, 1000);
     }
@@ -208,6 +212,7 @@ $(document).ready(function() {
     function nextQuestion() {
         startTime();
         $('#holder').empty();
+        console.log("nextQuestion() triggered");
         /*
 			want to randomize question order
 			run function (might not need a function)
@@ -252,7 +257,7 @@ $(document).ready(function() {
     } // end of displayFinalResults()
 
     // event listener for when the user clicks on an answer
-    $('.btn').on('click', function() {
+    $(document).on('click', '.btn', function() {
         // page has just been refreshed/loaded for the first time and the user clicked start
         if ($(this).attr('id') == 'start') {
             /*
@@ -261,20 +266,26 @@ $(document).ready(function() {
                 start the timer and play Texas Fight
             */
             $(this).hide();
+            console.log($(this).text());
             $(this).prop('disabled', true);
-            $('.time').show();
-            startTime();
+            startGame();
+        	console.log("Start button clicked");
+            /*$('.time').show();
+            $('#holder').show();
+            // startTime();
             nextQuestion();
-            texasFight.play();
+            texasFight.play();*/
         }
 
         // game is over and the user clicked restart
         else if ($(this).attr('id') == 'restartGame') {
+        	console.log("restart game button clicked");
             startGame();
         }
 
         // user clicked an answer
         else {
+        	console.log("answer has been clicked");
             // if the answer chosen is correct, assign a header to the result variable and display it
             if ($(this).hasClass('correct')) {
                 correct++;
