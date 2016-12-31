@@ -19,7 +19,7 @@ h1, p, .question {
 	padding: 40px;
 }
 
-.time, .question, #resultDisplay, #finalResults {
+.time, #holder {
 	display: none;
 }
 
